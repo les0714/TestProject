@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+
+{% block title %}Appointment page{% endblock %}
+{% block head %}Appointment page{% endblock %}
+{% block content %}
+    <form action="" method="post">
+        {% csrf_token %}
+
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <span style="font-size: 18px;"><b>Choose date</b></span>
+                    </div>
+                    <div class="panel-body ul-clear">
+                        {{ user_data_form.user_date }}
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <span style="font-size: 18px;"><b>Choose time</b></span>
+                    </div>
+                    <div class="panel-body ul-clear">
+                        {{ user_data_form.user_time }}
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <span style="font-size: 18px;"><b>Full name</b></span>
+                    </div>
+                    <div class="panel-body ul-clear">
+                        {{ user_data_form.user_name }}
+                    </div>
+                </div>
+
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <span style="font-size: 18px;"><b>Email</b></span>
+                    </div>
+                    <div class="panel-body ul-clear">
+                        {{ user_data_form.user_email }}
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+
+        {% autoescape off %}
+        <input type="submit" name="submit" value="Submit">
+        {% endautoescape %}
+    </form>
+
+{% endblock %}
