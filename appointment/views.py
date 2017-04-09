@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.http import HttpResponseNotFound
+from django.http import HttpResponseNotFound, HttpResponseRedirect
 from django.template.loader import get_template
 from django.template import Context
 from appointment.forms import UserData
@@ -17,6 +17,8 @@ def appointment_page(request):
     if request.POST:
         user_data_form = UserData(request.POST)
         user_data_form, state = user_data_form.process(request)
+        if state:
+            return HttpResponseRedirect('/appointment/')
     else:
         user_data_form = UserData()
 
